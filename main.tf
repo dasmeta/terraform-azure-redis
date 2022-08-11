@@ -1,4 +1,4 @@
-resource "azurerm_redis_cache" "example" {
+resource "azurerm_redis_cache" "cache" {
   capacity                      = var.capacity
   family                        = var.family
   location                      = var.location
@@ -29,7 +29,7 @@ resource "azurerm_private_endpoint" "private_endp" {
   private_service_connection {
     is_manual_connection           = false
     name                           = var.private_endpoint_name
-    private_connection_resource_id = azurerm_redis_cache.example.id
+    private_connection_resource_id = azurerm_redis_cache.cache.id
     subresource_names = [
       "redisCache",
     ]
